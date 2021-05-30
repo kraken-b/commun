@@ -114,9 +114,9 @@ public class AlphaController {
         return "/demo/view";
     }
 
-    //响应JSON数据（异步请求）
+    // 响应JSON数据（异步请求）
     // Java对象-> JSON字符串 -> JS对象
-    //不加@ResponseBody，表示返回的是html
+    // 不加@ResponseBody，表示返回的是html
 
     @RequestMapping(path = "/emp", method = RequestMethod.GET)
     @ResponseBody
@@ -194,5 +194,13 @@ public class AlphaController {
         return "get session";
     }
 
+    // ajax示例
+    @RequestMapping(path = "/ajax", method = RequestMethod.POST)
+    @ResponseBody
+    public String textAjax(String name, int age) {
+        System.out.println(name);
+        System.out.println(age);
+        return CommunityUtil.getJSONString(0, "操作成功");
+    }
 
 }

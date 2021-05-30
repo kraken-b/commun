@@ -20,7 +20,7 @@ public interface DiscussPostMapper {
      * @param limit  每页最多显示多少条数据
      * @return
      */
-    List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit);
+    List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit, int orderMode);
 
     /**
      * @Param注解用于给参数取别名
@@ -31,6 +31,15 @@ public interface DiscussPostMapper {
      */
     int selectDiscussPostRows(@Param("userId") int userId);
 
+    int insertDiscussPost(DiscussPost discussPost);
 
+    DiscussPost selectDiscussPostById(int id);
 
+    int updateCommentCount(int id, int commentCount);
+
+    int updateType(int id, int type);
+
+    int updateStatus(int id, int status);
+
+    int updateScore(int id, double score);
 }
